@@ -2,7 +2,6 @@
 
 # Rule Engine with AST
 This project is a simple 3-tier rule engine application that determines user eligibility based on various attributes like age, department, income, and spend. The system uses an Abstract Syntax Tree (AST) to represent conditional rules and allows for dynamic creation, combination, and modification of these rules.
-## Prerequisites
 
 ## Tech Stack
 
@@ -28,6 +27,7 @@ This project is a simple 3-tier rule engine application that determines user eli
 - **SQLite** - v3.x  
   A lightweight relational database used for storing rules and metadata.
 
+## Prerequisites
 ---
 Before setting up the project, ensure you have the following installed:
 - [Docker](https://docs.docker.com/get-docker/) (version 20.10 or higher)
@@ -63,48 +63,3 @@ To view logs from the frontend service, run:
 ```bash
 docker-compose logs frontend
 ```
-
-
-## API Endpoints
-
-1. **POST** `/create_rule`  
-   - Create a new rule from a rule string and store it in the database.  
-   - **Payload Example:**
-     ```json
-     {
-       "rule_string": "(age > 30 and department == 'Sales')"
-     }
-     ```
-
-2. **POST** `/combine_rules`  
-   - Combine multiple rules using logical operators (`AND` / `OR`).  
-   - **Payload Example:**
-     ```json
-     {
-       "rules": [1, 2], 
-       "operator": "AND"
-     }
-     ```
-
-3. **POST** `/evaluate`  
-   - Evaluate the combined AST using user attributes to check eligibility.  
-   - **Payload Example:**
-     ```json
-     {
-       "combined_ast": {
-         "op": "Or",
-         "values": [
-           {"left": "age", "operator": ">", "right": 30},
-           {"left": "age", "operator": "<", "right": 25}
-         ]
-       },
-       "user_data": {
-         "age": 28,
-         "department": "Sales",
-         "salary": 54332,
-         "experience": 1
-       }
-     }
-     ```
-
----
