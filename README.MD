@@ -37,7 +37,7 @@ Follow these steps to set up and run the project using Docker:
 ### 1. Clone the Repository
 First, clone the repository to your local machine:
 ```bash
-git clone <repository-url>
+git clone https://github.com/AnishBangotra/rule_engine.git
 cd rule_engine
 ```
 ### 2. Build and Start the Services
