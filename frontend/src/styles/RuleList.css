@@ -1,0 +1,17 @@
+ .rule-list {
+  width: 100%;
+ }
+  .rule-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .rule-list li {
+    padding: 10px;
+    color: black;
+    margin: 5px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  

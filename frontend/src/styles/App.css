@@ -1,0 +1,92 @@
+/* src/App.css */
+
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+/* Rule Form Styling */
+.rule-list-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+.rule-list {
+  max-height: 300px; /* Set max height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  /* border: 1px solid #ddd; */
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.rule-item {
+  background-color: #f1f1f1;
+  /* border: 1px solid black; */
+  width: 97%;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.rule-item:last-child {
+  margin-bottom: 0; /* Remove margin for the last item */
+}
+
+/* Add scrollbar styling */
+.rule-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rule-list::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+  overflow: none;
+}
+
+.rule-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Button Styling */
+button {
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1d72b8;
+  color: white;
+}
