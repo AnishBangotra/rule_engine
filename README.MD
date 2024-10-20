@@ -1,6 +1,34 @@
+# Build Instructions
+
 # Rule Engine with AST
 This project is a simple 3-tier rule engine application that determines user eligibility based on various attributes like age, department, income, and spend. The system uses an Abstract Syntax Tree (AST) to represent conditional rules and allows for dynamic creation, combination, and modification of these rules.
 ## Prerequisites
+
+## Tech Stack
+
+### Frontend
+
+- **React.js** - v18.2.0  
+  A JavaScript library for building user interfaces, especially for dynamic and interactive UIs.
+- **Axios** - v1.4.0  
+  Used for making HTTP requests from the frontend to the backend.
+- **CSS** - Styling for UI components.
+
+### Backend
+
+- **Python** - v3.9.0  
+  Language used to implement backend logic for creating, combining, and evaluating rules.
+- **FastAPI** - v0.95.2  
+  A modern, fast (high-performance) web framework for building APIs with Python 3.6+ based on standard Python type hints.
+- **Uvicorn** - v0.22.0  
+  ASGI server for serving FastAPI applications.
+
+### Database
+
+- **SQLite** - v3.x  
+  A lightweight relational database used for storing rules and metadata.
+
+---
 Before setting up the project, ensure you have the following installed:
 - [Docker](https://docs.docker.com/get-docker/) (version 20.10 or higher)
 - [Docker Compose](https://docs.docker.com/compose/install/) (if not included with your Docker installation)
@@ -35,3 +63,48 @@ To view logs from the frontend service, run:
 ```bash
 docker-compose logs frontend
 ```
+
+
+## API Endpoints
+
+1. **POST** `/create_rule`  
+   - Create a new rule from a rule string and store it in the database.  
+   - **Payload Example:**
+     ```json
+     {
+       "rule_string": "(age > 30 and department == 'Sales')"
+     }
+     ```
+
+2. **POST** `/combine_rules`  
+   - Combine multiple rules using logical operators (`AND` / `OR`).  
+   - **Payload Example:**
+     ```json
+     {
+       "rules": [1, 2], 
+       "operator": "AND"
+     }
+     ```
+
+3. **POST** `/evaluate`  
+   - Evaluate the combined AST using user attributes to check eligibility.  
+   - **Payload Example:**
+     ```json
+     {
+       "combined_ast": {
+         "op": "Or",
+         "values": [
+           {"left": "age", "operator": ">", "right": 30},
+           {"left": "age", "operator": "<", "right": 25}
+         ]
+       },
+       "user_data": {
+         "age": 28,
+         "department": "Sales",
+         "salary": 54332,
+         "experience": 1
+       }
+     }
+     ```
+
+---

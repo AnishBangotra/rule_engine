@@ -6,7 +6,7 @@ const RuleList = ({ rules }) => {
   }, [rules])
   return (
     <div className="rule-list">
-      <h2>Rules List</h2>
+      <h2>Rules</h2>
       <div className="rule-list-container">
         {rules.length > 0 ? (
           rules.map((rule, index) => (
